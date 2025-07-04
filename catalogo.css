@@ -19,74 +19,6 @@ html, body {
   background-size: cover;
 }
 
-
-/* Estilos para el menú hamburguesa */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 24px;
-  position: absolute;
-  right: 20px;
-  bottom: 15px;
-  z-index: 100;
-  cursor: pointer;
-}
-
-@media screen and (max-width: 768px) {
-  header {
-    height: auto;
-    padding-bottom: 15px;
-  }
-  
-  .header-content img {
-    height: 20vh;
-  }
-  
-  .menu-toggle {
-    display: block;
-  }
-  
-  .nav-container {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: #333;
-    padding: 20px 0;
-    z-index: 99;
-    flex-direction: column;
-  }
-  
-  .nav-container.active {
-    display: flex;
-  }
-  
-  .nav-container ul {
-    flex-direction: column;
-    width: 100%;
-  }
-  
-  .nav-container li {
-    margin: 5px 0;
-    text-align: center;
-  }
-  
-  .nav-container a {
-    display: block;
-    padding: 10px;
-  }
-  
-  .nav-secondary {
-    border-top: 1px solid #555;
-    margin-top: 10px;
-    padding-top: 10px;
-  }
-}
-
-
 /* ===== Estilo para el header ===== */
 header {
   position: relative;
@@ -420,83 +352,126 @@ h1 {
 
 /* Responsive */
 @media screen and (max-width: 768px) {
-  header {
-    height: auto;
-    padding-bottom: 15px;
-  }
-  
-  .header-content img {
-    height: 20vh;
-  }
-  
-  .nav-container {
-    position: relative;
+  .footer-content {
     flex-direction: column;
-    padding: 10px;
+    align-items: center;
   }
-  
-  .nav-container ul {
-    flex-direction: column;
-    width: 100%;
-  }
-  
-  .nav-container li {
-    margin: 5px 0;
+
+  .footer-column {
     text-align: center;
+    margin-bottom: 20px;
   }
-  
-  .nav-container a {
+
+  .footer-nav a {
     display: block;
-    padding: 10px;
+    margin: 5px 0;
   }
 }
 
-@media screen and (max-width: 768px) {
-  .container {
-    flex-direction: column;
-  }
-  
-  .sidebar {
-    width: 100%;
-    padding: 15px;
-    border-right: none;
-    border-bottom: 1px solid #e0d6d0;
-  }
-  
-  .sidebar h2 {
-    text-align: center;
-  }
-  
-  .contenido {
-    padding: 15px;
-  }
-  
-  .galeria {
-    grid-template-columns: 1fr;
-  }
+.footer-logo-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.footer-logo-container img {
+  width: 2px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.footer-logo-container p {
+  font-size: 13px;
+  color: #ccc;
+  margin-top: 5px;
+  line-height: 1.4;
 }
 
 @media screen and (max-width: 600px) {
-  .footer-column {
-    flex: 1 1 100%;
-    text-align: center;
-    margin-bottom: 25px;
+  .footer-logo-container img {
+    width: 90px;
   }
-  
-  .footer-nav a {
+
+  .footer-logo-container p {
+    font-size: 12px;
+  }
+}
+
+.footer-logo-container p:hover {
+  color: #ffcc00;
+  transition: color 0.3s ease;
+}
+
+/* ==== Responsive para celulares ==== */
+@media (max-width: 768px) {
+  /* Ajuste del contenedor principal */
+  .container {
+    flex-direction: column;
+  }
+
+  /* Sidebar ahora ocupa toda la anchura */
+  .sidebar {
+    width: 100%;
+    order: 2;
+    border-right: none;
+    border-top: 1px solid #e0d6d0;
+    padding: 15px;
+  }
+
+  /* Contenido ocupa el 100% */
+  .contenido {
+    width: 100%;
+    padding: 15px;
+  }
+
+  /* Header y logo ajustados */
+  header {
+    height: auto;
+    padding-bottom: 20px;
+  }
+
+  .header-content img {
+    height: auto;
+    max-height: 120px;
+  }
+
+  /* Nav responsive en columna */
+  .nav-container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .nav-container ul {
+    flex-direction: column;
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .nav-container ul li {
+    margin: 5px 0;
+  }
+
+  .nav-container a {
     display: block;
-    margin: 10px 0;
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
   }
-  
-  .logo-footer {
-    margin: 0 auto 15px;
+
+  /* Galería en una sola columna */
+  .galeria {
+    grid-template-columns: 1fr;
+  }
+
+  .producto {
+    margin: 10px auto;
+    width: 90%;
+  }
+
+  .producto img {
+    height: auto;
   }
 }
-
-a, button {
-  min-height: 48px;
-  min-width: 48px;
-}
-
 
 
