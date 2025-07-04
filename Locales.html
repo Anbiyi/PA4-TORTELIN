@@ -3,30 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <title>Locales - Tortelin</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="locales.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
+  <link rel="stylesheet" href="javascript.js">
+  <header>
+    <div class="header-content">
+      <img src="imagenes/tortelinlogo.png" alt="Tortelin Logo" class="logo" loading="lazy" width="200" height="150">
+    </div>
+    
+    <button class="menu-toggle" aria-label="Menú">
+      <i class="fas fa-bars"></i>
+      <i class="fas fa-times" style="display: none;"></i>
+    </button>
+    
+    <nav class="nav-container">
+      <ul>
+        <li><a href="inicio.html">Inicio</a></li>
+        <li><a href="catalogo.html">Catálogo</a></li>
+        <li><a href="Nosotros.html">Nosotros</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="Locales.html">Locales</a></li>
+      </ul>
+      <ul class="nav-secondary">
+        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="#">Delivery: 971147072</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<header>
-  <div class="header-content">
-    <img src="imagenes/tortelinlogo.png" alt="Tortelin Logo">
-  </div>
-  <nav class="nav-container">
-    <ul>
-      <li><a href="inicio.html">Inicio</a></li>
-      <li><a href="catalogo.html">Catálogo</a></li>
-      <li><a href="Nosotros.html">Nosotros</a></li>
-      <li><a href="servicios.html">Servicios</a></li>
-      <li><a href="Locales.html">Locales</a></li>
-    </ul>
-    <ul>
-      <li><a href="#contacto">Contacto</a></li>
-      <li><a href="#">Delivery: 971147072</a></li>
-    </ul>
-  </nav>
-</header>
 
 <main class="contenido">
   <h1 class="titulo">NUESTROS LOCALES</h1>
@@ -73,7 +80,7 @@
 
   <div class="footer-content">
     <div class="footer-column logo-info">
-      <img src="imagenes/tortelinlogo.png" alt="Tortelin logo" class="logo-footer">
+      <img src="imagenes/tortelinlogo.png" alt="Tortelin logo" class="logo-footer" loading="lazy" width="120" height="80">
       <p>© 2010 Tortelin<br>Todos los derechos reservados</p>
     </div>
 

@@ -19,6 +19,74 @@ html, body {
   background-size: cover;
 }
 
+
+/* Estilos para el menú hamburguesa */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  position: absolute;
+  right: 20px;
+  bottom: 15px;
+  z-index: 100;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    height: auto;
+    padding-bottom: 15px;
+  }
+  
+  .header-content img {
+    height: 20vh;
+  }
+  
+  .menu-toggle {
+    display: block;
+  }
+  
+  .nav-container {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #333;
+    padding: 20px 0;
+    z-index: 99;
+    flex-direction: column;
+  }
+  
+  .nav-container.active {
+    display: flex;
+  }
+  
+  .nav-container ul {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .nav-container li {
+    margin: 5px 0;
+    text-align: center;
+  }
+  
+  .nav-container a {
+    display: block;
+    padding: 10px;
+  }
+  
+  .nav-secondary {
+    border-top: 1px solid #555;
+    margin-top: 10px;
+    padding-top: 10px;
+  }
+}
+
+
 /* ===== Estilo para el header ===== */
 header {
   position: relative;
@@ -269,51 +337,76 @@ header {
 
 /* Responsive */
 @media screen and (max-width: 768px) {
-  .footer-content {
+  header {
+    height: auto;
+    padding-bottom: 15px;
+  }
+  
+  .header-content img {
+    height: 20vh;
+  }
+  
+  .nav-container {
+    position: relative;
     flex-direction: column;
-    align-items: center;
+    padding: 10px;
   }
-
-  .footer-column {
-    text-align: center;
-    margin-bottom: 20px;
+  
+  .nav-container ul {
+    flex-direction: column;
+    width: 100%;
   }
-
-  .footer-nav a {
-    display: block;
+  
+  .nav-container li {
     margin: 5px 0;
+    text-align: center;
   }
-}
-
-.footer-logo-container {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.footer-logo-container img {
-  width: 2px;
-  height: auto;
-  margin-bottom: 10px;
-}
-
-.footer-logo-container p {
-  font-size: 13px;
-  color: #ccc;
-  margin-top: 5px;
-  line-height: 1.4;
+  
+  .nav-container a {
+    display: block;
+    padding: 10px;
+  }
 }
 
 @media screen and (max-width: 600px) {
-  .footer-logo-container img {
-    width: 90px;
+  .footer-column {
+    flex: 1 1 100%;
+    text-align: center;
+    margin-bottom: 25px;
   }
-
-  .footer-logo-container p {
-    font-size: 12px;
+  
+  .footer-nav a {
+    display: block;
+    margin: 10px 0;
+  }
+  
+  .logo-footer {
+    margin: 0 auto 15px;
   }
 }
 
-.footer-logo-container p:hover {
-  color: #ffcc00;
-  transition: color 0.3s ease;
+@media screen and (max-width: 600px) {
+  .bienvenida-contenido {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .imagen-bienvenida {
+    max-width: 100%;
+  }
+  
+  .galeria-productos {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .producto {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+}
+
+a, button {
+  min-height: 48px;
+  min-width: 48px;
 }
