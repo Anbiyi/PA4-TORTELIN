@@ -18,7 +18,8 @@ html, body {
   background-position: center;
   background-size: cover;
 }
-/* ===== Estilo para el header ===== */
+
+/* ===== HEADER Y NAVEGACIÓN ===== */
 header {
   position: relative;
   height: 25vh;
@@ -44,11 +45,24 @@ header {
 .header-content img {
   height: 30vh;
   width: auto;
-  max-width: 100%; 
-  object-fit: contain; 
+  max-width: 100%;
+  object-fit: contain;
 }
 
-/* Barra de navegación */
+/* Menú Hamburguesa */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  position: absolute;
+  right: 20px;
+  bottom: 15px;
+  z-index: 100;
+  cursor: pointer;
+}
+
 .nav-container {
   display: flex;
   justify-content: space-between;
@@ -73,6 +87,7 @@ header {
   color: white;
   text-decoration: none;
   padding: 5px 10px;
+  transition: all 0.3s ease;
 }
 
 .nav-container a:hover {
@@ -80,12 +95,7 @@ header {
   border-radius: 5px;
 }
 
-.nav-container ul:last-child li:last-child a:hover {
-  background-color: transparent;
-  color: white;
-}
-
-/* HERO IMAGE */
+/* ===== HERO SECTION ===== */
 .hero {
   width: 100%;
   height: 50vh;
@@ -96,13 +106,11 @@ header {
   width: 100%;
   height: 100%;
   object-fit: cover;
-
-
   object-position: center;
   display: block;
 }
 
-/* CONTENIDO */
+/* ===== CONTENIDO PRINCIPAL ===== */
 .contenido {
   max-width: 1000px;
   margin: 0 auto;
@@ -115,15 +123,31 @@ header {
   color: #e2892b;
   margin-bottom: 10px;
   font-weight: bold;
+  position: relative;
+  display: inline-block;
+}
+
+.titulo::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: #e2892b;
 }
 
 .subtitulo {
   font-size: 16px;
   margin-bottom: 40px;
   color: #444;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* BLOQUES */
+/* BLOQUES DE CONTENIDO */
 .bloque {
   display: flex;
   flex-wrap: wrap;
@@ -135,19 +159,41 @@ header {
 .bloque div {
   flex: 1;
   min-width: 280px;
-  max-width: 400px;
+  max-width: 500px;
   text-align: left;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.bloque div:hover {
+  transform: translateY(-5px);
 }
 
 .bloque h2 {
-  font-size: 18px;
+  font-size: 22px;
   color: #5e2a10;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.bloque h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: #e2892b;
 }
 
 .bloque p {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.6;
+  color: #333;
 }
 
 /* EQUIPO */
@@ -156,24 +202,31 @@ header {
   gap: 20px;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 40px;
 }
 
 .equipo img {
-  width: calc(50% - 15px); 
-  max-width: 410px; 
+  width: calc(50% - 15px);
+  max-width: 410px;
   height: auto;
   border-radius: 10px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  object-fit: cover; 
-  aspect-ratio: 16/9; 
+  object-fit: cover;
+  aspect-ratio: 16/9;
+  transition: transform 0.3s ease;
 }
 
-/* Footer */
+.equipo img:hover {
+  transform: scale(1.02);
+}
+
+/* ===== FOOTER ===== */
 .footer {
   background: #1c0e07;
   color: #fff;
   font-family: Arial, sans-serif;
   padding: 40px 20px;
+  margin-top: 60px;
 }
 
 .footer-nav {
@@ -190,6 +243,11 @@ header {
   text-decoration: none;
   font-weight: bold;
   font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+  color: #ffcc00;
 }
 
 .footer-content {
@@ -220,9 +278,13 @@ header {
 .logo-footer {
   width: 120px;
   margin-bottom: 10px;
+  transition: transform 0.3s ease;
 }
 
-/* Sección de Contacto */
+.logo-footer:hover {
+  transform: scale(1.05);
+}
+
 #contacto {
   background-color: rgba(255, 255, 255, 0.1);
   padding: 20px;
@@ -239,64 +301,148 @@ header {
   color: #ffcc00;
 }
 
-/* Responsive */
+/* ===== RESPONSIVE DESIGN ===== */
 @media screen and (max-width: 768px) {
-  .footer-content {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .footer-column {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  .footer-nav a {
-    display: block;
-    margin: 5px 0;
-  }
-}
-
-.footer-logo-container {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.footer-logo-container img {
-  width: 2px;
-  height: auto;
-  margin-bottom: 10px;
-}
-
-.footer-logo-container p {
-  font-size: 13px;
-  color: #ccc;
-  margin-top: 5px;
-  line-height: 1.4;
-}
-
-@media screen and (max-width: 600px) {
-  .footer-logo-container img {
-    width: 90px;
-  }
-
-  .footer-logo-container p {
-    font-size: 12px;
-  }
-}
-
-.footer-logo-container p:hover {
-  color: #ffcc00;
-  transition: color 0.3s ease;
-}
-
-@media screen and (max-width: 768px) {
-  .bloque div {
-    max-width: 100%;
+  /* Header */
+  header {
+    height: auto;
+    padding-bottom: 15px;
   }
   
-  .equipo img {
+  .header-content img {
+    height: 20vh;
+  }
+  
+  /* Menú Hamburguesa */
+  .menu-toggle {
+    display: block;
+  }
+  
+  .nav-container {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #333;
+    padding: 20px 0;
+    z-index: 99;
+    flex-direction: column;
+  }
+  
+  .nav-container.active {
+    display: flex;
+  }
+  
+  .nav-container ul {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .nav-container li {
+    margin: 5px 0;
+    text-align: center;
+  }
+  
+  .nav-container a {
+    display: block;
+    padding: 10px;
+  }
+  
+  .nav-secondary {
+    border-top: 1px solid #555;
+    margin-top: 10px;
+    padding-top: 10px;
+  }
+  
+  /* Hero */
+  .hero {
+    height: 40vh;
+  }
+  
+  /* Contenido */
+  .contenido {
+    padding: 30px 15px;
+  }
+  
+  .titulo {
+    font-size: 28px;
+  }
+  
+  .subtitulo {
+    font-size: 15px;
+    margin-bottom: 30px;
+  }
+  
+  /* Bloques */
+  .bloque {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .bloque div {
     width: 100%;
     max-width: 100%;
+    padding: 20px;
   }
+  
+  .bloque h2 {
+    font-size: 20px;
+  }
+  
+  /* Equipo */
+  .equipo img {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  /* Footer */
+  .footer-column {
+    flex: 1 1 100%;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  
+  .footer-nav a {
+    display: block;
+    margin: 10px 0;
+  }
+  
+  .logo-footer {
+    margin: 0 auto 15px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hero {
+    height: 30vh;
+  }
+  
+  .titulo {
+    font-size: 24px;
+  }
+  
+  .bloque h2 {
+    font-size: 18px;
+  }
+  
+  .bloque p {
+    font-size: 14px;
+  }
+}
+
+/* Elementos interactivos */
+a, button {
+  min-height: 48px;
+  min-width: 48px;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.contenido {
+  animation: fadeIn 0.5s ease-out;
 }
