@@ -366,3 +366,21 @@ header {
     margin-bottom: 25px;
   }
 }
+
+.productos-favoritos {
+    padding: 30px 15px;
+  }
+  
+  .productos-favoritos h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    white-space: nowrap; 
+    overflow: hidden;
+  }
+  
+  .productos-favoritos h2::before,
+  .productos-favoritos h2::after {
+    width: 30px;
+    margin: 0 10px; 
+    vertical-align: middle;
+  }
