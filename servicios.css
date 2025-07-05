@@ -339,3 +339,21 @@ header {
     margin: 5px 0;
   }
 }
+
+.servicios {
+    padding: 30px 15px;
+  }
+  
+  .servicios h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    white-space: nowrap; 
+    overflow: hidden;
+  }
+  
+  .servicios h2::before,
+  .servicios h2::after {
+    width: 30px;
+    margin: 0 10px; 
+    vertical-align: middle;
+  }
