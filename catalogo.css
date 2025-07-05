@@ -19,7 +19,75 @@ html, body {
   background-size: cover;
 }
 
-/* ===== Header y Navegación ===== */
+
+/* Estilos para el menú hamburguesa */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  position: absolute;
+  right: 20px;
+  bottom: 15px;
+  z-index: 100;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    height: auto;
+    padding-bottom: 15px;
+  }
+  
+  .header-content img {
+    height: 20vh;
+  }
+  
+  .menu-toggle {
+    display: block;
+  }
+  
+  .nav-container {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #333;
+    padding: 20px 0;
+    z-index: 99;
+    flex-direction: column;
+  }
+  
+  .nav-container.active {
+    display: flex;
+  }
+  
+  .nav-container ul {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .nav-container li {
+    margin: 5px 0;
+    text-align: center;
+  }
+  
+  .nav-container a {
+    display: block;
+    padding: 10px;
+  }
+  
+  .nav-secondary {
+    border-top: 1px solid #555;
+    margin-top: 10px;
+    padding-top: 10px;
+  }
+}
+
+
+/* ===== Estilo para el header ===== */
 header {
   position: relative;
   height: 25vh;
@@ -45,44 +113,11 @@ header {
 .header-content img {
   height: 30vh;
   width: auto;
-  max-width: 100%;
-  object-fit: contain;
-  transition: transform 0.3s ease;
+  max-width: 100%; 
+  object-fit: contain; 
 }
 
-/* ===== Menú Hamburguesa ===== */
-.menu-toggle {
-  display: none;
-  cursor: pointer;
-  padding: 10px;
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  z-index: 1;
-  background-color: rgba(51, 51, 51, 0.8);
-  border-radius: 5px;
-}
-
-.menu-toggle .bar {
-  width: 25px;
-  height: 3px;
-  background-color: white;
-  margin: 5px 0;
-  transition: all 0.3s ease;
-}
-
-.menu-toggle.active .bar:nth-child(1) {
-  transform: rotate(-45deg) translate(-5px, 6px);
-}
-
-.menu-toggle.active .bar:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-toggle.active .bar:nth-child(3) {
-  transform: rotate(45deg) translate(-5px, -6px);
-}
-
+/* Barra de navegación */
 .nav-container {
   display: flex;
   justify-content: space-between;
@@ -91,7 +126,6 @@ header {
   position: absolute;
   bottom: 0;
   width: 100%;
-  z-index: 1000;
 }
 
 .nav-container ul {
@@ -108,14 +142,17 @@ header {
   color: white;
   text-decoration: none;
   padding: 5px 10px;
-  transition: all 0.3s ease;
 }
 
-.nav-container li:not(:last-child) a:hover {
+.nav-container a:hover {
   background-color: #ff6347;
   border-radius: 5px;
 }
 
+.nav-container ul:last-child li:last-child a:hover {
+  background-color: transparent;
+  color: white;
+}
 
 /* ==== Sidebar ==== */
 .container {
@@ -382,56 +419,35 @@ h1 {
 }
 
 /* Responsive */
-@media (max-width: 768px) {
-  /* Header */
+@media screen and (max-width: 768px) {
   header {
-    padding-bottom: 50px;
-    height: 20vh;
+    height: auto;
+    padding-bottom: 15px;
   }
   
   .header-content img {
-    max-height: 160px;
-    min-width: 120px;
-    margin: 10px 0;
-    transform-origin: center;
-  }
-  
-  /* Navegación */
-  .menu-toggle {
-    display: block;
-    top: 15px;
+    height: 20vh;
   }
   
   .nav-container {
+    position: relative;
     flex-direction: column;
-    padding: 0;
+    padding: 10px;
   }
   
   .nav-container ul {
     flex-direction: column;
-    display: none;
     width: 100%;
-    background: #444;
-    position: absolute;
-    top: 100%;
-    left: 0;
-  }
-  
-  .nav-container ul.active {
-    display: flex;
   }
   
   .nav-container li {
-    margin: 0;
+    margin: 5px 0;
     text-align: center;
-    border-bottom: 1px solid #555;
-    width: 100%;
   }
   
   .nav-container a {
-    padding: 12px;
     display: block;
-    width: 100%;
+    padding: 10px;
   }
 }
 
@@ -467,12 +483,20 @@ h1 {
     margin-bottom: 25px;
   }
   
-   .footer-nav {
-    flex-direction: column;
-    align-items: center;
+  .footer-nav a {
+    display: block;
+    margin: 10px 0;
   }
   
-  .footer-nav a {
-    margin: 5px 0;
+  .logo-footer {
+    margin: 0 auto 15px;
   }
 }
+
+a, button {
+  min-height: 48px;
+  min-width: 48px;
+}
+
+
+

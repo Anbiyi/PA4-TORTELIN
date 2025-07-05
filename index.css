@@ -10,11 +10,84 @@ html {
 
 html, body {
   height: 100%;
+  font-size: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
   font-family: 'Montserrat', sans-serif;
   background-color: #FFF5F5;
+  background-position: center;
+  background-size: cover;
 }
 
-/* ===== Header y Navegación ===== */
+
+/* Estilos para el menú hamburguesa */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  position: absolute;
+  right: 20px;
+  bottom: 15px;
+  z-index: 100;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    height: auto;
+    padding-bottom: 15px;
+  }
+  
+  .header-content img {
+    height: 20vh;
+  }
+  
+  .menu-toggle {
+    display: block;
+  }
+  
+  .nav-container {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #333;
+    padding: 20px 0;
+    z-index: 99;
+    flex-direction: column;
+  }
+  
+  .nav-container.active {
+    display: flex;
+  }
+  
+  .nav-container ul {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .nav-container li {
+    margin: 5px 0;
+    text-align: center;
+  }
+  
+  .nav-container a {
+    display: block;
+    padding: 10px;
+  }
+  
+  .nav-secondary {
+    border-top: 1px solid #555;
+    margin-top: 10px;
+    padding-top: 10px;
+  }
+}
+
+
+/* ===== Estilo para el header ===== */
 header {
   position: relative;
   height: 25vh;
@@ -40,43 +113,11 @@ header {
 .header-content img {
   height: 30vh;
   width: auto;
-  max-width: 100%;
-  object-fit: contain;
+  max-width: 100%; 
+  object-fit: contain; 
 }
 
-/* ===== Menú Hamburguesa ===== */
-.menu-toggle {
-  display: none;
-  cursor: pointer;
-  padding: 10px;
-  position: fixed;
-  right: 20px;
-  top: 20px;
-  z-index: 1001;
-  background-color: rgba(51, 51, 51, 0.8);
-  border-radius: 5px;
-}
-
-.menu-toggle .bar {
-  width: 25px;
-  height: 3px;
-  background-color: white;
-  margin: 5px 0;
-  transition: all 0.3s ease;
-}
-
-.menu-toggle.active .bar:nth-child(1) {
-  transform: rotate(-45deg) translate(-5px, 6px);
-}
-
-.menu-toggle.active .bar:nth-child(2) {
-  opacity: 0;
-}
-
-.menu-toggle.active .bar:nth-child(3) {
-  transform: rotate(45deg) translate(-5px, -6px);
-}
-
+/* Barra de navegación */
 .nav-container {
   display: flex;
   justify-content: space-between;
@@ -85,7 +126,6 @@ header {
   position: absolute;
   bottom: 0;
   width: 100%;
-  z-index: 1000; 
 }
 
 .nav-container ul {
@@ -102,15 +142,18 @@ header {
   color: white;
   text-decoration: none;
   padding: 5px 10px;
-  transition: all 0.3s ease;
 }
 
-.nav-container li:not(:last-child) a:hover {
+.nav-container a:hover {
   background-color: #ff6347;
   border-radius: 5px;
 }
 
-/* ===== Sección Bienvenida ===== */
+.nav-container ul:last-child li:last-child a:hover {
+  background-color: transparent;
+  color: white;
+}
+/* Sección Bienvenida */
 .bienvenida {
   background-image: url('imagenes/fondo\ \(2\).jpg');
   background-size: cover;
@@ -118,6 +161,7 @@ header {
   background-repeat: no-repeat;
   padding: 40px;
   color: white;
+  font-family: 'Arial', sans-serif;
 }
 
 .bienvenida-contenido {
@@ -157,11 +201,12 @@ header {
   margin-bottom: 15px;
 }
 
-/* ===== Productos Favoritos ===== */
+/* Productos Favoritos */
 .productos-favoritos {
   text-align: center;
   padding: 40px 20px;
   background-color: #f9f5f2;
+  font-family: 'Arial', sans-serif;
 }
 
 .productos-favoritos h2 {
@@ -219,10 +264,11 @@ header {
   color: #666;
 }
 
-/* ===== Footer ===== */
+/* Footer */
 .footer {
   background: #1c0e07;
   color: #fff;
+  font-family: Arial, sans-serif;
   padding: 40px 20px;
 }
 
@@ -272,6 +318,7 @@ header {
   margin-bottom: 10px;
 }
 
+/* Sección de Contacto */
 #contacto {
   background-color: rgba(255, 255, 255, 0.1);
   padding: 20px;
@@ -288,7 +335,7 @@ header {
   color: #ffcc00;
 }
 
-/* ===== Responsive ===== */
+/* Responsive */
 @media screen and (max-width: 768px) {
   header {
     height: auto;
@@ -299,23 +346,10 @@ header {
     height: 20vh;
   }
   
-  .menu-toggle {
-    display: block;
-  }
-  
   .nav-container {
-    position: fixed;
-    top: 0;
-    left: -100%;
-    height: 100vh;
+    position: relative;
     flex-direction: column;
-    justify-content: flex-start;
-    padding-top: 80px;
-    transition: all 0.3s ease;
-  }
-  
-  .nav-container.active {
-    left: 0;
+    padding: 10px;
   }
   
   .nav-container ul {
@@ -324,32 +358,43 @@ header {
   }
   
   .nav-container li {
-    margin: 0;
-    width: 100%;
+    margin: 5px 0;
     text-align: center;
-    border-bottom: 1px solid #555;
   }
   
   .nav-container a {
-    padding: 15px 20px;
     display: block;
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .footer-column {
+    flex: 1 1 100%;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+  
+  .footer-nav a {
+    display: block;
+    margin: 10px 0;
+  }
+  
+  .logo-footer {
+    margin: 0 auto 15px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .bienvenida-contenido {
+    flex-direction: column;
+    gap: 20px;
   }
   
   .imagen-bienvenida {
     max-width: 100%;
   }
   
-  .footer-nav {
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .footer-nav a {
-    margin: 5px 0;
-  }
-}
-
-@media screen and (max-width: 600px) {
   .galeria-productos {
     flex-direction: column;
     align-items: center;
@@ -359,10 +404,9 @@ header {
     width: 90%;
     margin-bottom: 20px;
   }
-  
-  .footer-column {
-    flex: 1 1 100%;
-    text-align: center;
-    margin-bottom: 25px;
-  }
+}
+
+a, button {
+  min-height: 48px;
+  min-width: 48px;
 }
