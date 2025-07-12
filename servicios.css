@@ -426,7 +426,6 @@ header {
     width: 100%;
   }
   
-  /* Footer */
   .footer-nav {
     flex-direction: column;
     align-items: center;
@@ -435,8 +434,13 @@ header {
   .footer-nav a {
     margin: 5px 0;
   }
-}
 
+    .footer-column {
+    flex: 1 1 100%;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+}
 @media (max-width: 480px) {
   .servicios {
     padding: 30px 15px;
