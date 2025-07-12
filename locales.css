@@ -116,6 +116,12 @@ header {
   border-radius: 5px;
 }
 
+.nav-container ul li a:hover {
+  background-color: #ff6347; 
+  color: white; 
+  border-radius: 5px;
+}
+
 /* CONTENIDO */
 .contenido {
   max-width: 1000px;

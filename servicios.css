@@ -116,6 +116,12 @@ header {
   border-radius: 5px;
 }
 
+.nav-container ul li a:hover {
+  background-color: #ff6347; 
+  color: white; 
+  border-radius: 5px;
+}
+
 /* ===== Sección Servicios ===== */
 .servicios {
   padding: 40px 20px;
