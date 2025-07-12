@@ -365,6 +365,10 @@ h1 {
   margin-right: 8px;
 }
 
+.footer-nav a:hover {
+  color: #ffcc00;
+}
+
 .logo-footer {
   width: 120px;
   margin-bottom: 10px;

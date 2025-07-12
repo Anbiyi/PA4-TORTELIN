@@ -6,6 +6,7 @@
   <title>Servicios - Tortelin</title>
   <link rel="stylesheet" href="servicios.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
@@ -149,14 +150,57 @@
       </div>
     </div>
   </footer>
+
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      // Menú hamburguesa
       const menuToggle = document.querySelector('.menu-toggle');
       const navContainer = document.querySelector('.nav-container ul');
       
       menuToggle.addEventListener('click', function() {
         this.classList.toggle('active');
         navContainer.classList.toggle('active');
+      });
+
+      // Animación al hacer scroll
+      const servicioItems = document.querySelectorAll('.servicio-item');
+      
+      const animateOnScroll = () => {
+        servicioItems.forEach(item => {
+          const itemPosition = item.getBoundingClientRect().top;
+          const screenPosition = window.innerHeight / 1.3;
+          
+          if(itemPosition < screenPosition) {
+            item.style.animation = 'fadeInUp 0.8s ease-out forwards';
+          }
+        });
+      };
+      
+      // Ejecutar al cargar y al hacer scroll
+      window.addEventListener('load', animateOnScroll);
+      window.addEventListener('scroll', animateOnScroll);
+
+      // Animación del logo
+      const logo = document.querySelector('.header-content img');
+      logo.addEventListener('mouseover', () => {
+        logo.style.animation = 'pulse 0.5s ease-in-out';
+      });
+      
+      logo.addEventListener('animationend', () => {
+        logo.style.animation = 'pulse 2s infinite alternate';
+      });
+    });
+
+    // Animación para los iconos de servicios
+    const serviceIcons = document.querySelectorAll('.icono');
+    serviceIcons.forEach(icon => {
+      icon.addEventListener('mouseenter', () => {
+        icon.style.transform = 'rotate(15deg) scale(1.1)';
+        icon.style.transition = 'all 0.3s ease';
+      });
+      
+      icon.addEventListener('mouseleave', () => {
+        icon.style.transform = 'rotate(0) scale(1)';
       });
     });
   </script>
