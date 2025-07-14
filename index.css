@@ -80,7 +80,7 @@ header {
 }
 
 .header-content img {
-  height: 30vh;
+  height: 30px;
   width: auto;
   max-width: 100%;
   object-fit: contain;
