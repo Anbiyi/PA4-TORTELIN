@@ -637,3 +637,23 @@ header {
     margin: 0 10px; 
     vertical-align: middle;
   }
+
+  .footer-column .integrantes {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #5c3f2f;
+  font-size: 13px;
+  animation: fadeIn 1s ease-out;
+}
+
+.footer-column .integrantes h4 {
+  color: #ffcc00;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.footer-column .integrantes p {
+  margin: 2px 0;
+  color: #f0f0f0;
+  font-size: 13px;
+}
