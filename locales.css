@@ -1,11 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap');
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInFromTop {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideInFromBottom {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideInFromLeft {
+  from { transform: translateX(-50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInFromRight {
+  from { transform: translateX(50px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
 @keyframes float {
   0% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
   100% { transform: translateY(0px); }
 }
 
-.logo {
+/* Estilos originales con animaciones añadidas */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #FFF5F5;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Header */
+header {
+  position: relative;
+  height: 25vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  background-image: url('../imagenes/back/');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 60px;
+  animation: fadeIn 1s ease-out;
+}
+
+.header-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.header-content img {
+  height: 30px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
   animation: float 3s ease-in-out infinite;
+}
+
+/* Menú Hamburguesa */
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  padding: 10px;
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  z-index: 1001;
+  background-color: rgba(51, 51, 51, 0.8);
+  border-radius: 5px;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.menu-toggle .bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 5px 0;
+  transition: all 0.3s ease;
+}
+
+.menu-toggle.active .bar:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  background-color: #333;
+  padding: 10px 20px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
+  animation: slideInFromTop 0.5s ease-out;
+}
+
+.nav-container a {
+  position: relative;
+}
+
+.nav-container a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #ff6347;
+  transition: width 0.3s ease;
+}
+
+.nav-container a:hover::after {
+  width: 100%;
+}
+
+/* Footer */
+.footer {
+  animation: slideInFromBottom 1s ease-out;
+}
+
+.footer-nav a:hover {
+  color: #ffcc00;
+}
+
+.footer-column:hover {
+  transform: translateY(-5px);
+}
+
+.logo-footer:hover {
+  transform: rotate(5deg) scale(1.1);
+}
+
+.social-link:hover {
+  transform: translateX(5px);
 }
 
 * {
@@ -20,16 +185,12 @@ html {
 
 html, body {
   height: 100%;
-  font-size: 100%;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
   font-family: 'Montserrat', sans-serif;
   background-color: #FFF5F5;
-  background-position: center;
-  background-size: cover;
+  font-family: 'Open Sans', sans-serif;
 }
 
-/* HEADER Y NAVEGACIÓN */
+/* ===== Header y Navegación ===== */
 header {
   position: relative;
   height: 25vh;
@@ -57,7 +218,6 @@ header {
   width: auto;
   max-width: 100%;
   object-fit: contain;
-  transition: transform 0.3s ease;
 }
 
 /* MENU HAMBURGUESA */
@@ -101,7 +261,8 @@ header {
   position: absolute;
   bottom: 0;
   width: 100%;
-  z-index: 1000; 
+  z-index: 1000;
+  animation: slideInFromTop 0.5s ease-out;
 }
 
 .nav-container ul {
@@ -119,6 +280,22 @@ header {
   text-decoration: none;
   padding: 5px 10px;
   transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-container a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #ff6347;
+  transition: width 0.3s ease;
+}
+
+.nav-container a:hover::after {
+  width: 100%;
 }
 
 .nav-container li:not(:last-child) a:hover {
@@ -217,12 +394,13 @@ header {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Footer */
+/* ===== Footer ===== */
 .footer {
   background: #1c0e07;
   color: #fff;
   font-family: Arial, sans-serif;
   padding: 40px 20px;
+  margin-top: 60px;
 }
 
 .footer-nav {
@@ -239,6 +417,11 @@ header {
   text-decoration: none;
   font-weight: bold;
   font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-nav a:hover {
+  color: #ffcc00;
 }
 
 .footer-content {
@@ -266,13 +449,17 @@ header {
   margin-right: 8px;
 }
 
-.footer-nav a:hover {
-  color: #ffcc00;
-}
-
 .logo-footer {
   width: 120px;
   margin-bottom: 10px;
+}
+
+.logo-footer {
+  animation: pulse 2s infinite; 
+}
+
+.logo-footer:hover {
+  transform: scale(1.05);
 }
 
 /* Sección de Contacto */
